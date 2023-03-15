@@ -12,20 +12,22 @@ class Parser(webdriver.Chrome):
         self.driver_path = driver_path
         os.environ['PATH'] += self.driver_path
         super(Parser, self).__init__()
+        self.implicitly_wait(15)
 
     def login_link(self):
         self.find_element(By.ID, "loginLink").click()
         self.find_element(By.ID, "sessionEmail").send_keys(const.USER_NAME)
         self.find_element(By.ID, "sessionPassword").send_keys(const.PASSWORD)
+        time.sleep(2)
         self.find_element(
             By.XPATH, "/html/body/div[1]/div/div[1]/div[2]/ng-switch/session-login/form/div[4]/input"
         ).click()
 
     def land_first_page(self):
         self.get(const.FULL_URL)
-        self.implicitly_wait(15)
 
-    def get_info(self):
+    @staticmethod
+    def get_info():
         page = requests.get(const.JSON_URL)
         tee_times = []
         time_ids = []
@@ -55,7 +57,8 @@ class Parser(webdriver.Chrome):
 
         return df
 
-    def check_for_availability(self, n, df):
+    @staticmethod
+    def check_for_availability(df):
         list_of_times = []
         list_of_ids = []
         looper = True
@@ -90,7 +93,7 @@ class Parser(webdriver.Chrome):
                       'div[2]/div[1]/reservation-review-terms/label/div/input'
         ).click()
 
-        # self.find_element(
-        #     By.XPATH, '/html/body/div[2]/div[1]/div[2]/div/div/div/div/div/div/div[1]/booking-confirmation/div'
-        #               '/form/div[2]/div[2]/reservation-review-submit-button/button'
-        # ).click()
+        self.find_element(
+            By.XPATH, '/html/body/div[2]/div[1]/div[2]/div/div/div/div/div/div/div[1]/booking-confirmation/div'
+                      '/form/div[2]/div[2]/reservation-review-submit-button/button'
+        ).click()

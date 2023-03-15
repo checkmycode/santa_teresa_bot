@@ -1,19 +1,21 @@
-# Date Wanted
+# Date Wanted (XX-XX-XXXX // always add a 0 if single digit (e.g. 01, 02, 03)
 MONTH = '03'
-DAY = '21'
+DAY = '22'
 YEAR = '2023'
 
-# How many in your party?
-PLAYER_COUNT = 3
+# How many in your party? (1-4)
+PLAYER_COUNT = 4
 
-# Uses Army Time (07:00 - 18:00 - pick from tee time list below)
-WANTED_TIME = '08:00'
+# Uses Military Time (07:00 - 18:00 - make sure time is identical to the tee time list below
+WANTED_TIME = '14:00'
 
-# User Credentials
-USER_NAME = 'markcuasay@gmail.com'
-PASSWORD = 'Golf408$'
+# User Credentials for Santa Teresa Golf Course (chronogolf)
+USER_NAME = 'youremail@email.com'
+PASSWORD = 'password'
 
-# This picks Santa Teresa and 18 hole only -- do not touch anything below this line
+
+# Do not touch anything below this line
+# This picks Santa Teresa and 18 hole only
 BASE_URL = 'https://www.chronogolf.com/club/santa-teresa-golf-club#?'
 COURSE_ID = 'course_id=22913&'
 HOLE_COUNT = 'nb_holes=18&'
