@@ -1,17 +1,20 @@
-BASE_URL = 'https://www.chronogolf.com/club/santa-teresa-golf-club#?'
+# Date Wanted
 MONTH = '03'
-DAY = '15'
+DAY = '21'
 YEAR = '2023'
 
-PLAYER_COUNT = 4
+# How many in your party?
+PLAYER_COUNT = 3
 
-WANTED_TIME = '7:30AM'
+# Uses Army Time (07:00 - 18:00 - pick from tee time list below)
+WANTED_TIME = '08:00'
 
 # User Credentials
 USER_NAME = 'markcuasay@gmail.com'
 PASSWORD = 'Golf408$'
 
-# This picks Santa Teresa and 18 hole only -- do not touch
+# This picks Santa Teresa and 18 hole only -- do not touch anything below this line
+BASE_URL = 'https://www.chronogolf.com/club/santa-teresa-golf-club#?'
 COURSE_ID = 'course_id=22913&'
 HOLE_COUNT = 'nb_holes=18&'
 
@@ -30,20 +33,21 @@ elif PLAYER_COUNT == 1:
     PLAYER_COUNT = 'affiliation_type_ids=109214'
 
 FULL_URL = BASE_URL + DATE + COURSE_ID + HOLE_COUNT + PLAYER_COUNT
-JSON_URL = f'https://www.chronogolf.com/marketplace/clubs/18876/teetimes?date={YEAR}-{MONTH}-{DAY}&course_id=22913&affiliation_type_ids%5B%5D=109214&affiliation_type_ids%5B%5D=109214&affiliation_type_ids%5B%5D=109214&affiliation_type_ids%5B%5D=109214&nb_holes=18'
+JSON_URL = f'https://www.chronogolf.com/marketplace/clubs/18876/teetimes?date={YEAR}-{MONTH}-{DAY}' \
+           f'&course_id=22913&affiliation_type_ids%5B%5D=109214&affiliation_type_ids%5B%5D=109214' \
+           f'&affiliation_type_ids%5B%5D=109214&affiliation_type_ids%5B%5D=109214&nb_holes=18'
 
-
-tee_time_list = ['7:00AM', '7:07AM', '7:15AM', '7:22AM', '7:30AM', '7:37AM', '7:45AM', '7:52AM',
-                 '8:00AM', '8:07AM', '8:15AM', '8:22AM', '8:30AM', '8:37AM', '8:45AM', '8:52AM',
-                 '9:00AM', '9:07AM', '9:15AM', '9:22AM', '9:30AM', '9:37AM', '9:45AM', '9:52AM',
-                 '10:00AM', '10:07AM', '10:15AM', '10:22AM', '10:30AM', '10:37AM', '10:45AM', '10:52AM',
-                 '11:00AM', '11:07AM', '11:15AM', '11:22AM', '11:30AM', '11:37AM', '11:45AM', '11:52AM',
-                 '12:00PM', '12:07PM', '12:15PM', '12:22PM', '12:30PM', '12:37PM', '12:45PM', '12:52PM',
-                 '1:00PM', '1:07PM', '1:15PM', '1:22PM', '1:30PM', '1:37PM', '1:45PM', '1:52PM',
-                 '2:00PM', '2:07PM', '2:15PM', '2:22PM', '2:30PM', '2:37PM', '2:45PM', '2:52PM',
-                 '3:00PM', '3:07PM', '3:15PM', '3:22PM', '3:30PM', '3:37PM', '3:45PM', '3:52PM',
-                 '4:00PM', '4:07PM', '4:15PM', '4:22PM', '4:30PM', '4:37PM', '4:45PM', '4:52PM',
-                 '5:00PM', '5:07PM', '5:07PM', '5:22PM', '5:30PM', '5:37PM', '5:45PM', '5:52PM',
-                 '6:00PM', '6:07PM', '6:15PM', '6:22PM', '6:30PM', '6:37PM', '6:45PM', '6:52PM', ]
+tee_time_list = ['07:00', '07:07', '07:15', '07:22', '07:30', '07:37', '07:45', '07:52',
+                 '08:00', '08:07', '08:15', '08:22', '08:30', '08:37', '08:45', '08:52',
+                 '09:00', '09:07', '09:15', '09:22', '09:30', '09:37', '09:45', '09:52',
+                 '10:00', '10:07', '10:15', '10:22', '10:30', '10:37', '10:45', '10:52',
+                 '11:00', '11:07', '11:15', '11:22', '11:30', '11:37', '11:45', '11:52',
+                 '12:00', '12:07', '12:15', '12:22', '12:30', '12:37', '12:45', '12:52',
+                 '13:00', '13:07', '13:15', '13:22', '13:30', '13:37', '13:45', '13:52',
+                 '14:00', '14:07', '14:15', '14:22', '14:30', '14:37', '14:45', '14:52',
+                 '15:00', '15:07', '15:15', '15:22', '15:30', '15:37', '15:45', '15:52',
+                 '16:00', '16:07', '16:15', '16:22', '16:30', '16:37', '16:45', '16:52',
+                 '17:00', '17:07', '17:07', '17:22', '17:30', '17:37', '17:45', '17:52',
+                 '18:00', '18:07', '18:15', '18:22', '18:30', '18:37', '18:45', '18:52', ]
 
 n = tee_time_list.index(WANTED_TIME)

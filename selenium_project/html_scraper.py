@@ -1,3 +1,4 @@
+import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import os
@@ -21,7 +22,6 @@ class Parser(webdriver.Chrome):
         ).click()
 
     def land_first_page(self):
-        self.maximize_window()
         self.get(const.FULL_URL)
         self.implicitly_wait(15)
 
@@ -52,18 +52,45 @@ class Parser(webdriver.Chrome):
         for index, row in df.iterrows():
             if row['Out_of_Cap']:
                 df = df.drop(index)
-            return df
+
+        return df
 
     def check_for_availability(self, n, df):
-        print('starting this now')
+        list_of_times = []
+        list_of_ids = []
+        looper = True
+
         for index, row in df.iterrows():
-            if row['Times'] == const.WANTED_TIME:
-                final_id = row['Ids']
-                print(final_id)
-                final_url = f'https://www.chronogolf.com/club/santa-teresa-golf-club/booking/?source=club#/teetime/review?affiliation_type_ids=109214,109214,109214,109214&teetime_id={final_id}&nb_holes=18&is_deal=false&source=club&new_user=false'
-                self.get(final_url)
-        else:
-            n += 1
-            self.check_for_availability(n, df)
+            list_of_times.append(row['Times'])
 
+        for index, row in df.iterrows():
+            list_of_ids.append(row['Ids'])
 
+        idx = const.tee_time_list.index(const.WANTED_TIME)
+
+        while looper:
+            if const.tee_time_list[idx] in list_of_times:
+                id_idx = list_of_times.index(const.tee_time_list[idx])
+                final_id = list_of_ids[id_idx]
+                final_url = f'https://www.chronogolf.com/club/santa-teresa-golf-club/booking/' \
+                            f'?source=club#/teetime/review' \
+                            f'?affiliation_type_ids=109214,109214,109214,109214' \
+                            f'&teetime_id={final_id}' \
+                            f'&nb_holes=18&is_deal=false&source=club&new_user=false'
+                return final_url
+            else:
+                idx += 1
+
+    def land_final_page(self, final_url):
+        self.get(final_url)
+        time.sleep(3)
+
+        self.find_element(
+            By.XPATH, '/html/body/div[2]/div[1]/div[2]/div/div/div/div/div/div/div[1]/booking-confirmation/div/form/'
+                      'div[2]/div[1]/reservation-review-terms/label/div/input'
+        ).click()
+
+        # self.find_element(
+        #     By.XPATH, '/html/body/div[2]/div[1]/div[2]/div/div/div/div/div/div/div[1]/booking-confirmation/div'
+        #               '/form/div[2]/div[2]/reservation-review-submit-button/button'
+        # ).click()
