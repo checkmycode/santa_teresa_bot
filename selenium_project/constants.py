@@ -6,7 +6,7 @@ YEAR = '2023'
 # How many in your party? (1-4)
 PLAYER_COUNT = 4
 
-# Uses Military Time (07:00 - 18:00 - make sure time is identical to the tee time list below
+# Uses Military Time (07:00 - 18:00 - make sure time is identical to the tee time list below)
 WANTED_TIME = '14:00'
 
 # User Credentials for Santa Teresa Golf Course (chronogolf)
