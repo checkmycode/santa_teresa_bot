@@ -43,7 +43,7 @@ Uses Military Time (07:00 - 18:52 - make sure time is identical to the tee time 
 
     WANTED_TIME = '07:00'
 
-User Credentials for Santa Teresa Website
+User Credentials for Santa Teresa Golf Course (chronogolf)
 
     USER_NAME = 'youremail@email.com'
     PASSWORD = 'password'
