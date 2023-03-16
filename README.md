@@ -30,7 +30,7 @@ Open command prompt and run:
 Edit santa_teresa_bot.bat
 
     @echo off
-    "Path where your Python exe is stored\python.exe" "Path where your Python script is stored\script name.py"
+    "Path where your Python exe is stored\python.exe" "Path where your Python script is stored\main.py"
     pause
 
 Setup Windows Task Scheduler to run santa_teresa_bot.bat at 7 A.M.
