@@ -1,5 +1,5 @@
 
-# San Teresa Bot
+# Santa Teresa Bot
 
 This code was designed to take inputs and automate a website to schedule a tee time. Coupled with Windows Task Scheduler, this code can be ran at 7 A.M., so you don't have to wake up.
 
