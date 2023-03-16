@@ -66,3 +66,9 @@ Example Tee Times
 ## Contributing
 
 This project was meant to be cloned and used for your own use case. If you do run into a bug, please let me know!
+
+## Authors
+
+- [@markcuasay](https://github.com/checkmycode)
+
+
