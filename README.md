@@ -18,12 +18,22 @@ https://chromedriver.chromium.org/downloads
 
     ∙ Make new folder in C: and name it SeleniumDrivers
         ∙ Extract all files from the downloaded zip to C:\SeleniumDrivers
+        
+Open command prompt and run:
 ```bash
   pip install selenium
 ```
 ```bash
   pip install pandas
 ```
+
+Edit santa_teresa_bot.bat
+
+    @echo off
+    "Path where your Python exe is stored\python.exe" "Path where your Python script is stored\script name.py"
+    pause
+
+Setup Windows Task Scheduler to run santa_teresa_bot.bat at 7 A.M.
 
 # Documentation
 
@@ -65,10 +75,6 @@ Example Tee Times
 
 ## Contributing
 
-This project was meant to be cloned and used for your own use case. If you do run into a bug, please let me know!
-
-## Authors
-
-- [@markcuasay](https://github.com/checkmycode)
+This project was meant to be cloned and used for your own use case.
 
 
